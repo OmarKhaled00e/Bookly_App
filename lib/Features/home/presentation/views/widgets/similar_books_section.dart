@@ -17,7 +17,7 @@ class SimilarBooksSection extends StatelessWidget {
           style: Styles.textStyle14.copyWith(fontWeight: FontWeight.w600),
         ),
         Gap(16),
-        // list 
+        // list
         SimilarBooksListView(),
       ],
     );

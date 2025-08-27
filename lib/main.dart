@@ -1,4 +1,3 @@
-import 'package:bookly/Features/splash/presentation/views/splash_view.dart';
 import 'package:bookly/constants.dart';
 import 'package:bookly/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +19,6 @@ class BooklyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       routerConfig: AppRouter.router,
-      
     );
   }
 }
