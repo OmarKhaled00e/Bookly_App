@@ -12,7 +12,7 @@ final class SarchBookInitial extends SarchBookState {}
 final class SarchBookLoading extends SarchBookState {}
 
 final class SarchBookSuccess extends SarchBookState {
-  final List<BookModel> books;
+  final List<Item> books;
 
   const SarchBookSuccess(this.books);
 }

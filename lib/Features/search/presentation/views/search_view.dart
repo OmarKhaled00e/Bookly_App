@@ -24,9 +24,25 @@ class _SearchViewState extends State<SearchView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: SearchViewBody(
-          searchController: searchController,
-          onSubmitted: (_) => onSearch(), books: [],
+        child: BlocBuilder<SarchBookCubit, SarchBookState>(
+          builder: (context, state) {
+            if (state is SarchBookSuccess) {
+              return SearchViewBody(
+                searchController: searchController,
+                onSubmitted: (_) => onSearch(),
+                books: state.books,
+              );
+            } else if (state is SarchBookFailure) {
+              return Center(child: Text(state.errMessage));
+            } else if (state is SarchBookLoading) {
+              return const Center(child: CircularProgressIndicator());
+            }
+            return SearchViewBody(
+              searchController: searchController,
+              onSubmitted: (_) => onSearch(),
+              books:[],
+            );
+          },
         ),
       ),
     );

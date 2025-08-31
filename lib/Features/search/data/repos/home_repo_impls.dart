@@ -2,7 +2,7 @@
 
 import 'package:bookly/Features/search/data/repos/home_repo.dart';
 import 'package:bookly/core/errors/failure.dart';
-import 'package:bookly/core/models/book_model/book_model.dart';
+import 'package:bookly/core/models/book_model/item.dart';
 import 'package:bookly/core/utils/api_service.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
@@ -13,16 +13,16 @@ class HomeRepoImpls implements HomeRepo {
   HomeRepoImpls(this.apiService);
 
   @override
-  Future<Either<Failure, List<BookModel>>> fatchSarchBooks({
+  Future<Either<Failure, List<Item>>> fatchSarchBooks({
     required String text,
   }) async {
     try {
       var data = await apiService.get(
         endPoint: 'volumes?Filtering=free-ebooks&Sorting=relevance&q=$text',
       );
-      List<BookModel> books = [];
+      List<Item> books = [];
       for (var item in data['items']) {
-        books.add(BookModel.fromJson(item)); 
+        books.add(Item.fromJson(item)); 
       }
 
       return right(books);

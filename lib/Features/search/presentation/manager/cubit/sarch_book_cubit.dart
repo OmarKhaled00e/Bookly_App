@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:bookly/Features/search/data/repos/home_repo.dart';
-import 'package:bookly/core/models/book_model/book_model.dart';
+import 'package:bookly/core/models/book_model/item.dart';
 import 'package:equatable/equatable.dart';
 
 part 'sarch_book_state.dart';
